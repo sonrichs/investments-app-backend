@@ -1,0 +1,23 @@
+### Create User
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "email": "user2@example.com",
+  "password": "password123",
+  "name": "JohnDoe",
+  "isActive": true,
+  "isAdmin": false
+}
+
+### Update User
+PATCH http://localhost:3000/users/0f967098-6b9f-476f-95a5-4f7acecae289
+Content-Type: application/json
+
+{
+  "name": "Jane Doe",
+  "isActive": true
+}
+
+### Get Users
+GET http://localhost:3000/users/
