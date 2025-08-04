@@ -1,4 +1,11 @@
-import { IsDate, IsNumber, IsString, MinDate, Validate } from 'class-validator';
+import {
+  IsDate,
+  IsNumber,
+  IsPositive,
+  IsString,
+  MinDate,
+  Validate,
+} from 'class-validator';
 import { EndDateAfterStartDate } from '../validators/endDateAfterStartDate';
 
 export class CreateProjectDto {
@@ -9,9 +16,11 @@ export class CreateProjectDto {
   description: string;
 
   @IsNumber()
+  @IsPositive()
   totalStocks: number;
 
   @IsNumber()
+  @IsPositive()
   stockPrice: number;
 
   @IsString()
