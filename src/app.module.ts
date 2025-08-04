@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { APP_PIPE } from '@nestjs/core';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ProjectsModule } from './projects/projects.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       autoLoadEntities: true,
       synchronize: true,
     }),
+    ProjectsModule,
   ],
   controllers: [AppController],
   providers: [
@@ -22,10 +24,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       provide: APP_PIPE,
       useValue: new ValidationPipe({
         transform: true,
-        // transformOptions: {
-        //   enableImplicitConversion: true, // this will allow us
-        // to remove @Transform decorator on primitive types and Serializable types
-        // },
+        transformOptions: {
+          enableImplicitConversion: true,
+        },
         whitelist: true,
         stopAtFirstError: false,
       }),

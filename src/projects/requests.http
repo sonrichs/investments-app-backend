@@ -1,0 +1,36 @@
+### Create project
+POST http://localhost:3000/projects
+Content-Type: application/json
+
+{
+  "title": "New Project",
+  "description": "Project description",
+  "totalStocks": 100,
+  "stockPrice": 10000,
+  "currency": "CLP",
+  "startDate": "2025-08-10",
+  "endDate": "2025-08-19"
+}
+
+### Update project
+PATCH http://localhost:3000/projects/d2447669-2e2f-4042-99b8-503a4ff89985
+Content-Type: application/json
+
+{
+  "title": "Updated Project",
+  "description": "Updated description",
+  "totalStocks": 150,
+  "stockPrice": 12000,
+  "currency": "CLP",
+  "startDate": "2025-08-10",
+  "endDate": "2025-08-11"
+}
+
+### Get all projects
+GET http://localhost:3000/projects
+
+### Get project by ID
+GET http://localhost:3000/projects/27fefbac-273f-4803-b6ff-5325c85302b2
+
+### Delete project
+DELETE http://localhost:3000/projects/27fefbac-273f-4803-b6ff-5325c85302b2

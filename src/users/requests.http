@@ -21,3 +21,9 @@ Content-Type: application/json
 
 ### Get Users
 GET http://localhost:3000/users/
+
+### Get User by ID
+GET http://localhost:3000/users/0f967098-6b9f-476f-95a5-4f7acecae289
+
+### Delete User
+DELETE http://localhost:3000/users/c89303fb-1e7e-458a-a237-d1fc450c4762
