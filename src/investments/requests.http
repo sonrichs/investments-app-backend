@@ -1,0 +1,32 @@
+### Create investment
+POST http://localhost:3000/investments
+Content-Type: application/json
+
+{
+  "stocksAmount": 100,
+  "investedAt": "Project description",
+  "exitedAt": 100,
+  "isActive": 10000,
+  "projectId": "CLP",
+  "userId": "2025-08-10"
+}
+
+### Update investment
+PATCH http://localhost:3000/investments/d2447669-2e2f-4042-99b8-503a4ff89985
+Content-Type: application/json
+
+{
+  "stocksAmount": "New Project",
+  "investedAt": "Project description",
+  "exitedAt": 100,
+  "isActive": 10000
+}
+
+### Get all investments
+GET http://localhost:3000/investments
+
+### Get investment by ID
+GET http://localhost:3000/investments/27fefbac-273f-4803-b6ff-5325c85302b2
+
+### Delete investment
+DELETE http://localhost:3000/investments/27fefbac-273f-4803-b6ff-5325c85302b2

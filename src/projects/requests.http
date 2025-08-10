@@ -3,13 +3,13 @@ POST http://localhost:3000/projects
 Content-Type: application/json
 
 {
-  "title": "New Project",
+  "title": "Example project 2",
   "description": "Project description",
-  "totalStocks": 100,
-  "stockPrice": 10000,
+  "totalStocks": 300,
+  "stockPrice": 2500,
   "currency": "CLP",
-  "startDate": "2025-08-10",
-  "endDate": "2025-08-19"
+  "startDate": "2025-08-20",
+  "endDate": "2025-09-19"
 }
 
 ### Update project

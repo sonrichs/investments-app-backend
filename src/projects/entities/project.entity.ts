@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Investment } from 'src/investments/entities/investment.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Project {
@@ -25,4 +26,7 @@ export class Project {
 
   @Column()
   endDate: Date;
+
+  @OneToMany(() => Investment, (investment) => investment.project)
+  investments: Investment[];
 }

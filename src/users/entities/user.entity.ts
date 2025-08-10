@@ -1,9 +1,11 @@
+import { Investment } from 'src/investments/entities/investment.entity';
 import {
   AfterInsert,
   AfterRemove,
   AfterUpdate,
   Column,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -26,6 +28,9 @@ export class User {
 
   @Column({ default: false })
   isAdmin: boolean;
+
+  @OneToMany(() => Investment, (investment) => investment.user)
+  investments: Investment[];
 
   @AfterInsert()
   logInsert() {
