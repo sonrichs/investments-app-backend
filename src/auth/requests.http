@@ -1,0 +1,19 @@
+### Sign up user
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "email": "signedupuser@example.com",
+  "password": "password",
+  "name": "John Doe",
+  "isAdmin": false
+}
+
+### Sign in user
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+  "email": "signedupuser@example.com",
+  "password": "password"
+}

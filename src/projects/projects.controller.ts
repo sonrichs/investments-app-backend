@@ -6,6 +6,8 @@ import {
   Patch,
   Param,
   Delete,
+  HttpCode,
+  HttpStatus,
 } from '@nestjs/common';
 import { ProjectsService } from './projects.service';
 import { CreateProjectDto } from './dto/create-project.dto';
@@ -15,6 +17,7 @@ import { UpdateProjectDto } from './dto/update-project.dto';
 export class ProjectsController {
   constructor(private readonly projectsService: ProjectsService) {}
 
+  @HttpCode(HttpStatus.CREATED)
   @Post()
   create(@Body() createProjectDto: CreateProjectDto) {
     return this.projectsService.create(createProjectDto);

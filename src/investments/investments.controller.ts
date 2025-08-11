@@ -6,6 +6,8 @@ import {
   Patch,
   Param,
   Delete,
+  HttpCode,
+  HttpStatus,
 } from '@nestjs/common';
 import { InvestmentsService } from './investments.service';
 import { CreateInvestmentDto } from './dto/create-investment.dto';
@@ -15,6 +17,7 @@ import { UpdateInvestmentDto } from './dto/update-investment.dto';
 export class InvestmentsController {
   constructor(private readonly investmentsService: InvestmentsService) {}
 
+  @HttpCode(HttpStatus.CREATED)
   @Post()
   create(@Body() createInvestmentDto: CreateInvestmentDto) {
     return this.investmentsService.create(createInvestmentDto);
