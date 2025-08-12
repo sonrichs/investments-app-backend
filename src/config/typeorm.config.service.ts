@@ -30,6 +30,8 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
           type: 'postgres',
           synchronize: false,
           database: this.configService.get<string>('DB_NAME'),
+          username: this.configService.get<string>('DB_USERNAME'),
+          password: this.configService.get<string>('DB_PASSWORD'),
           autoLoadEntities: true,
           migrationsRun: false,
         };
