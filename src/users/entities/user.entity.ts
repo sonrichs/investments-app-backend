@@ -3,6 +3,7 @@ import {
   AfterInsert,
   AfterRemove,
   AfterUpdate,
+  BeforeRemove,
   Column,
   Entity,
   OneToMany,
@@ -42,7 +43,7 @@ export class User {
     console.log('Updated User with id', this.id);
   }
 
-  @AfterRemove()
+  @BeforeRemove()
   logRemove() {
     console.log('Deleted User with id', this.id);
   }

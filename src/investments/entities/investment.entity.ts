@@ -20,9 +20,9 @@ export class Investment {
   @Column({ default: true })
   isActive: boolean;
 
-  @ManyToOne(() => Project, (project) => project.investments)
+  @ManyToOne(() => Project, (project) => project.investments, { eager: true })
   project: Project;
 
-  @ManyToOne(() => User, (user) => user.investments)
+  @ManyToOne(() => User, (user) => user.investments, { eager: true })
   user: User;
 }

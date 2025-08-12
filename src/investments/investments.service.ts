@@ -4,16 +4,36 @@ import { UpdateInvestmentDto } from './dto/update-investment.dto';
 import { Investment } from './entities/investment.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { ProjectsService } from 'src/projects/projects.service';
+import { UsersService } from 'src/users/users.service';
 
 @Injectable()
 export class InvestmentsService {
   constructor(
     @InjectRepository(Investment)
     private investmentsRepository: Repository<Investment>,
+    private userService: UsersService,
+    private projectsService: ProjectsService,
   ) {}
 
-  create(createInvestmentDto: CreateInvestmentDto) {
+  async create(createInvestmentDto: CreateInvestmentDto) {
+    const user = await this.userService.findOne(createInvestmentDto.userId);
+    if (!user) {
+      throw new NotFoundException(
+        `User with id ${createInvestmentDto.userId} not found`,
+      );
+    }
+    const project = await this.projectsService.findOne(
+      createInvestmentDto.projectId,
+    );
+    if (!project) {
+      throw new NotFoundException(
+        `Project with id ${createInvestmentDto.projectId} not found`,
+      );
+    }
     const investment = this.investmentsRepository.create(createInvestmentDto);
+    investment.user = user;
+    investment.project = project;
     return this.investmentsRepository.save(investment);
   }
 

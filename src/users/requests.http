@@ -4,8 +4,8 @@ Content-Type: application/json
 
 {
   "email": "admin@example.com",
-  "password": "password123",
-  "name": "JohnDoe",
+  "password": "admin123",
+  "name": "Admin",
   "isActive": true,
   "isAdmin": true
 }
@@ -15,15 +15,15 @@ PATCH http://localhost:3000/users/4db3d6e2-e584-44a0-843d-001b370ee6b1
 Content-Type: application/json
 
 {
-  "isAdmin": true
+  "name": "Admin"
 }
 
 ### Get Users
 GET http://localhost:3000/users/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYzA3YzY4NS1iM2EyLTRjOTktYTUyNy05YmJlYjIwMGI4OGIiLCJ1c2VybmFtZSI6InNpZ25lZHVwdXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg3NjkzMywiZXhwIjoxNzU0ODgwNTMzfQ.OG2Cbqb9sqUlO2fxYBNAj0WG5AWxt4vI_BHCLYhT_po
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYzA3YzY4NS1iM2EyLTRjOTktYTUyNy05YmJlYjIwMGI4OGIiLCJ1c2VybmFtZSI6InNpZ25lZHVwdXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDk2MDk2NywiZXhwIjoxNzU0OTY0NTY3fQ.yqahYGgZixXKzLDpmyQvNz38Xf_hx71Xj6_RcB3xhmY
 
 ### Get User by ID
 GET http://localhost:3000/users/4db3d6e2-e584-44a0-843d-001b370ee6b1
 
 ### Delete User
-DELETE http://localhost:3000/users/34ee7f79-9327-4ca8-9179-d2b921ede074
+DELETE http://localhost:3000/users/4db3d6e2-e584-44a0-843d-001b370ee6b1

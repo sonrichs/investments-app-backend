@@ -29,6 +29,13 @@ export class UsersService {
 
   findAll() {
     return this.userRepository.find();
+    // Para paginación luego
+    // return this.userRepository
+    //   .createQueryBuilder()
+    //   .select('*')
+    //   .take(1)
+    //   .skip(0)
+    //   .getRawMany();
   }
 
   findOne(id: string) {

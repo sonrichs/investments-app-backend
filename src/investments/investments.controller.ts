@@ -8,12 +8,18 @@ import {
   Delete,
   HttpCode,
   HttpStatus,
+  UseGuards,
 } from '@nestjs/common';
 import { InvestmentsService } from './investments.service';
 import { CreateInvestmentDto } from './dto/create-investment.dto';
 import { UpdateInvestmentDto } from './dto/update-investment.dto';
+import { Serialize } from 'src/interceptors/serialize.interceptor';
+import { InvestmentDto } from './dto/investment-dto';
+import { AuthGuard } from 'src/auth/auth.guard';
 
 @Controller('investments')
+@Serialize(InvestmentDto)
+@UseGuards(AuthGuard)
 export class InvestmentsController {
   constructor(private readonly investmentsService: InvestmentsService) {}
 

@@ -4,11 +4,11 @@ Content-Type: application/json
 
 {
   "stocksAmount": 100,
-  "investedAt": "Project description",
-  "exitedAt": 100,
+  "investedAt": "2025-08-20",
+  "exitedAt": "2026-08-20",
   "isActive": 10000,
-  "projectId": "CLP",
-  "userId": "2025-08-10"
+  "projectId": "3334b229-3d61-41b7-aac1-9f973088f71c",
+  "userId": "ac07c685-b3a2-4c99-a527-9bbeb200b88b"
 }
 
 ### Update investment
@@ -29,4 +29,4 @@ GET http://localhost:3000/investments
 GET http://localhost:3000/investments/27fefbac-273f-4803-b6ff-5325c85302b2
 
 ### Delete investment
-DELETE http://localhost:3000/investments/27fefbac-273f-4803-b6ff-5325c85302b2
+DELETE http://localhost:3000/investments/a8993663-9571-418f-8d48-4a24d56e68d7

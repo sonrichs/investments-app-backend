@@ -8,12 +8,18 @@ import {
   Delete,
   HttpCode,
   HttpStatus,
+  UseGuards,
 } from '@nestjs/common';
 import { ProjectsService } from './projects.service';
 import { CreateProjectDto } from './dto/create-project.dto';
 import { UpdateProjectDto } from './dto/update-project.dto';
+import { Serialize } from 'src/interceptors/serialize.interceptor';
+import { ProjectDto } from './dto/project-dto';
+import { AuthGuard } from 'src/auth/auth.guard';
 
 @Controller('projects')
+@Serialize(ProjectDto)
+@UseGuards(AuthGuard)
 export class ProjectsController {
   constructor(private readonly projectsService: ProjectsService) {}
 
