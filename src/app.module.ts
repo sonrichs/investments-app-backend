@@ -18,7 +18,7 @@ import { AuthModule } from './auth/auth.module';
     }),
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: `.env.${process.env.NODE_ENV || 'development'}`,
+      // envFilePath: `.env.${process.env.NODE_ENV || 'development'}`,
       validationSchema,
     }),
     UsersModule,
