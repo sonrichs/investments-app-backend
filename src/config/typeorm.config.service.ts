@@ -27,6 +27,10 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       case 'production':
         return {
           type: 'postgres',
+          host: this.configService.get<string>('DB_HOST'),
+          port: this.configService.get<number>('DB_PORT'),
+          username: this.configService.get<string>('DB_USERNAME'),
+          password: this.configService.get<string>('DB_PASSWORD'),
           synchronize: false,
           database: this.configService.get<string>('DB_NAME'),
           autoLoadEntities: true,
