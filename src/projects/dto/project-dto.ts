@@ -1,5 +1,5 @@
 import { Expose, Type } from 'class-transformer';
-import { InvestmentDto } from 'src/investments/dto/investment-dto';
+import { InvestmentDto } from '../../investments/dto/investment-dto';
 
 export class ProjectDto {
   @Expose()
@@ -19,6 +19,9 @@ export class ProjectDto {
 
   @Expose()
   currency: string;
+
+  @Expose()
+  phase: number;
 
   @Expose()
   startDate: Date;

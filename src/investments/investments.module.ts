@@ -3,8 +3,9 @@ import { InvestmentsService } from './investments.service';
 import { InvestmentsController } from './investments.controller';
 import { Investment } from './entities/investment.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UsersModule } from 'src/users/users.module';
-import { ProjectsModule } from 'src/projects/projects.module';
+import { UsersModule } from '../users/users.module';
+import { ProjectsModule } from '../projects/projects.module';
+import { JwtService } from '@nestjs/jwt';
 
 @Module({
   imports: [
@@ -13,6 +14,6 @@ import { ProjectsModule } from 'src/projects/projects.module';
     ProjectsModule,
   ],
   controllers: [InvestmentsController],
-  providers: [InvestmentsService],
+  providers: [InvestmentsService, JwtService],
 })
 export class InvestmentsModule {}

@@ -21,7 +21,6 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
           type: 'sqlite',
           synchronize: true,
           database: this.configService.get<string>('DB_NAME'),
-          entities: [__dirname + '/../**/*.entity{.ts,.js}'],
           autoLoadEntities: true,
           migrationsRun: true,
         };
@@ -30,8 +29,6 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
           type: 'postgres',
           synchronize: false,
           database: this.configService.get<string>('DB_NAME'),
-          username: this.configService.get<string>('DB_USERNAME'),
-          password: this.configService.get<string>('DB_PASSWORD'),
           autoLoadEntities: true,
           migrationsRun: false,
         };

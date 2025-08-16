@@ -1,7 +1,7 @@
 import { Expose, Transform, Type } from 'class-transformer';
 import { Investment } from '../entities/investment.entity';
-import { ProjectDto } from 'src/projects/dto/project-dto';
-import { UserDto } from 'src/users/dto/user.dto';
+import { ProjectDto } from '../../projects/dto/project-dto';
+import { UserDto } from '../../users/dto/user.dto';
 
 export class InvestmentDto {
   @Expose()

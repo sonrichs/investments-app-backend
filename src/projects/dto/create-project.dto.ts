@@ -26,6 +26,10 @@ export class CreateProjectDto {
   @IsString()
   currency: string;
 
+  @IsNumber()
+  @IsPositive()
+  phase: number;
+
   @IsDate()
   @MinDate(new Date())
   startDate: Date;
