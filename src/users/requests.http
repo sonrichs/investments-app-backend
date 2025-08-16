@@ -20,7 +20,7 @@ Content-Type: application/json
 
 ### Get Users
 GET http://localhost:3000/users/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYzA3YzY4NS1iM2EyLTRjOTktYTUyNy05YmJlYjIwMGI4OGIiLCJ1c2VybmFtZSI6InNpZ25lZHVwdXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDk2MDk2NywiZXhwIjoxNzU0OTY0NTY3fQ.yqahYGgZixXKzLDpmyQvNz38Xf_hx71Xj6_RcB3xhmY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYzA3YzY4NS1iM2EyLTRjOTktYTUyNy05YmJlYjIwMGI4OGIiLCJ1c2VybmFtZSI6InNpZ25lZHVwdXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTc1NTAzODk1MCwiZXhwIjoxNzU1MDQyNTUwfQ.IG5cdjI2R7GA8FX5QfbKoxgCefEbEoFTLL0Mxxr8acE
 
 ### Get User by ID
 GET http://localhost:3000/users/4db3d6e2-e584-44a0-843d-001b370ee6b1

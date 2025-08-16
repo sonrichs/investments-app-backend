@@ -4,8 +4,8 @@ import { UpdateInvestmentDto } from './dto/update-investment.dto';
 import { Investment } from './entities/investment.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ProjectsService } from 'src/projects/projects.service';
-import { UsersService } from 'src/users/users.service';
+import { ProjectsService } from '../projects/projects.service';
+import { UsersService } from '../users/users.service';
 
 @Injectable()
 export class InvestmentsService {

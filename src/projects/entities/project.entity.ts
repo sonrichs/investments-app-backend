@@ -1,4 +1,4 @@
-import { Investment } from 'src/investments/entities/investment.entity';
+import { Investment } from '../../investments/entities/investment.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
@@ -17,6 +17,9 @@ export class Project {
 
   @Column()
   stockPrice: number;
+
+  @Column()
+  phase: number;
 
   @Column()
   currency: string;

@@ -1,7 +1,6 @@
-import { Investment } from 'src/investments/entities/investment.entity';
+import { Investment } from '../../investments/entities/investment.entity';
 import {
   AfterInsert,
-  AfterRemove,
   AfterUpdate,
   BeforeRemove,
   Column,
