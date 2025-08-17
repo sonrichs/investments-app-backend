@@ -8,7 +8,7 @@ const sqliteDataSource = new DataSource({
   type: 'sqlite',
   database: 'local.sqlite',
   entities: ['**/*.entity*{.js,.ts}'],
-  migrations: [__dirname + '/migrations/*{.js,.ts}'],
+  migrations: [__dirname + '/migrations/dev/*{.js,.ts}'],
 } as DataSourceOptions);
 
 const postgresDataSource = new DataSource({
@@ -19,7 +19,7 @@ const postgresDataSource = new DataSource({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   entities: ['**/*.entity*{.js,.ts}'],
-  migrations: [__dirname + '/migrations/*{.js,.ts}'],
+  migrations: [__dirname + '/migrations/prod/*{.js,.ts}'],
 } as DataSourceOptions);
 
 const appDataSource =
