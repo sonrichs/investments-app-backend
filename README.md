@@ -57,18 +57,17 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Deployment
+## Migrations
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+For migrations use the following command:
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+# Generate migration
+$ typeorm-ts-node-commonjs migration:generate -d src/data-source.ts src/'your destination'
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+# Run migrations
+$ npm run typeorm migration:run -- -d src/data-source.ts
+```
 
 ## Resources
 
