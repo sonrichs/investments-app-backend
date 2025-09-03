@@ -32,6 +32,8 @@ export class InvestmentsService {
       );
     }
     const investment = this.investmentsRepository.create(createInvestmentDto);
+    // Always default to current date for creation
+    investment.investedAt = new Date();
     investment.user = user;
     investment.project = project;
     return this.investmentsRepository.save(investment);

@@ -14,7 +14,7 @@ export class Investment {
   @Column()
   investedAt: Date;
 
-  @Column()
+  @Column({ nullable: true })
   exitedAt: Date;
 
   @Column({ default: true })
