@@ -6,13 +6,15 @@ import {
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
-import { Repository } from 'typeorm';
+import { DataSource, FindManyOptions, ILike, Like, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import { ListUsersQueryDto } from './dto/list-users.query';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(User) private userRepository: Repository<User>,
+    private readonly dataSource: DataSource,
   ) {}
   async create(createUserDto: CreateUserDto) {
     const existingUser = await this.userRepository.findOneBy({
@@ -27,15 +29,31 @@ export class UsersService {
     return this.userRepository.save(newUser);
   }
 
-  findAll() {
-    return this.userRepository.find();
-    // Para paginación luego
-    // return this.userRepository
-    //   .createQueryBuilder()
-    //   .select('*')
-    //   .take(1)
-    //   .skip(0)
-    //   .getRawMany();
+  findAll(query?: ListUsersQueryDto) {
+    const where: Record<string, any> = {};
+    if (query?.emailPrefix || query?.email) {
+      const pattern = query.emailPrefix
+        ? `${query.emailPrefix}%`
+        : `%${query.email}%`;
+      const isPostgres = this.dataSource.options.type === 'postgres';
+      where.email = isPostgres ? ILike(pattern) : Like(pattern);
+    }
+    if (query?.isActive) {
+      where.isActive = query.isActive;
+    }
+
+    const hasPagination =
+      query?.page !== undefined || query?.limit !== undefined;
+    const page = query?.page ?? 1;
+    const limit = query?.limit ?? 20;
+
+    const options: FindManyOptions = { where };
+    if (hasPagination) {
+      options.skip = (page - 1) * limit;
+      options.take = limit;
+    }
+
+    return this.userRepository.find(options);
   }
 
   findOne(id: string) {

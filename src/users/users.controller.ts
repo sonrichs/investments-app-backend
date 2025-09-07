@@ -1,6 +1,7 @@
 import {
   Controller,
   Get,
+  Query,
   Body,
   Patch,
   Param,
@@ -9,6 +10,7 @@ import {
   HttpCode,
   HttpStatus,
   Post,
+  ValidationPipe,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -16,6 +18,7 @@ import { Serialize } from '../interceptors/serialize.interceptor';
 import { UserDto } from './dto/user.dto';
 import { AuthGuard } from '../auth/auth.guard';
 import { CreateUserDto } from './dto/create-user.dto';
+import { ListUsersQueryDto } from './dto/list-users.query';
 
 @Controller('users')
 @Serialize(UserDto)
@@ -30,8 +33,11 @@ export class UsersController {
   }
 
   @Get()
-  findAll() {
-    return this.usersService.findAll();
+  findAll(
+    @Query(new ValidationPipe({ transform: true, whitelist: true }))
+    query: ListUsersQueryDto,
+  ) {
+    return this.usersService.findAll(query);
   }
 
   @Get(':id')
