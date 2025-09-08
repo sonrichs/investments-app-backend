@@ -17,6 +17,12 @@ export class User {
   @Column({ unique: true })
   email: string;
 
+  @Column({ nullable: true })
+  nationalId: string;
+
+  @Column({ nullable: true })
+  type: string;
+
   @Column()
   password: string;
 
