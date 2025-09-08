@@ -1,12 +1,12 @@
 ### Create User
 POST http://localhost:3000/users
 Content-Type: application/json
-Authorization: Bearer xxx
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYzA3YzY4NS1iM2EyLTRjOTktYTUyNy05YmJlYjIwMGI4OGIiLCJ1c2VybmFtZSI6InNpZ25lZHVwdXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTc1NzI1Mzc0NiwiZXhwIjoxNzU3MjU3MzQ2fQ.smwcseqrjRHG0M7Nc9f38Flu9So2E1MWr6EtjEw6_S4
 
 {
-  "email": "admin@example.com",
-  "password": "admin123",
-  "name": "Admin",
+  "email": "test0709@gmail.com",
+  "password": "test",
+  "name": "test",
   "isActive": true,
   "isAdmin": true
 }
@@ -24,7 +24,7 @@ GET http://localhost:3000/users/
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYzA3YzY4NS1iM2EyLTRjOTktYTUyNy05YmJlYjIwMGI4OGIiLCJ1c2VybmFtZSI6InNpZ25lZHVwdXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTc1NzI1Mzc0NiwiZXhwIjoxNzU3MjU3MzQ2fQ.smwcseqrjRHG0M7Nc9f38Flu9So2E1MWr6EtjEw6_S4
 
 ### Get Users by email prefix
-GET http://localhost:3000/users?emailPrefix=a
+GET http://localhost:3000/users?emailPrefix=adm
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhYzA3YzY4NS1iM2EyLTRjOTktYTUyNy05YmJlYjIwMGI4OGIiLCJ1c2VybmFtZSI6InNpZ25lZHVwdXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTc1NzI1Mzc0NiwiZXhwIjoxNzU3MjU3MzQ2fQ.smwcseqrjRHG0M7Nc9f38Flu9So2E1MWr6EtjEw6_S4
 
 
