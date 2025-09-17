@@ -7,12 +7,17 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
   constructor(private configService: ConfigService) {}
 
   createTypeOrmOptions(): TypeOrmModuleOptions | Promise<TypeOrmModuleOptions> {
+    const host = this.configService.get<string>('DB_HOST');
+    const username = this.configService.get<string>('DB_USERNAME');
+    const password = this.configService.get<string>('DB_PASSWORD');
+    const database = this.configService.get<string>('DB_NAME');
+    const databaseOptions = this.configService.get<string>('DB_OPTIONS');
     switch (process.env.NODE_ENV) {
       case 'development':
         return {
           type: 'sqlite',
           synchronize: true,
-          database: this.configService.get<string>('DB_NAME'),
+          database: database,
           autoLoadEntities: true,
           migrationsRun: false,
         };
@@ -20,20 +25,16 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
         return {
           type: 'sqlite',
           synchronize: true,
-          database: this.configService.get<string>('DB_NAME'),
+          database: database,
           autoLoadEntities: true,
           migrationsRun: true,
         };
       case 'production':
         return {
           type: 'postgres',
-          host: this.configService.get<string>('DB_HOST'),
-          port: this.configService.get<number>('DB_PORT'),
-          username: this.configService.get<string>('DB_USERNAME'),
-          password: this.configService.get<string>('DB_PASSWORD'),
-          synchronize: false,
-          database: this.configService.get<string>('DB_NAME'),
+          url: `postgresql://${username}:${password}@${host}/${database}?${databaseOptions}`,
           autoLoadEntities: true,
+          synchronize: false,
           migrationsRun: false,
         };
       default:
