@@ -8,8 +8,9 @@ import { InvestmentsModule } from './investments/investments.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmConfigService } from './config/typeorm.config.service';
-import { validationSchema } from './config/config.validation';
+import { validate } from './config/config.validation';
 import { AuthModule } from './auth/auth.module';
+import { InvestorsModule } from './investors/investors.module';
 
 @Module({
   imports: [
@@ -18,9 +19,10 @@ import { AuthModule } from './auth/auth.module';
     }),
     ConfigModule.forRoot({
       isGlobal: true,
-      validationSchema,
+      validate,
     }),
     UsersModule,
+    InvestorsModule,
     ProjectsModule,
     InvestmentsModule,
     AuthModule,

@@ -16,7 +16,9 @@ import { UpdateInvestmentDto } from './dto/update-investment.dto';
 import { Serialize } from '../interceptors/serialize.interceptor';
 import { InvestmentDto } from './dto/investment-dto';
 import { AuthGuard } from '../auth/auth.guard';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
+@ApiBearerAuth()
 @Controller('investments')
 @Serialize(InvestmentDto)
 @UseGuards(AuthGuard)

@@ -6,19 +6,19 @@ import {
   IsString,
   Length,
 } from 'class-validator';
-import { UserType } from '../user-type';
+import { InvestorType } from '../investor-type';
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreateUserDto {
+export class CreateInvestorDto {
   @ApiProperty({
-    description: 'User email address',
-    example: 'user@example.com',
+    description: 'Investor email address',
+    example: 'investor@example.com',
   })
   @IsEmail()
   email: string;
 
   @ApiProperty({
-    description: 'User national identification number',
+    description: 'Investor national identification number',
     example: '123456789',
   })
   @IsString()
@@ -26,15 +26,15 @@ export class CreateUserDto {
   nationalId: string;
 
   @ApiProperty({
-    description: 'Type of user within the platform',
+    description: 'Type of investor within the platform',
     example: 'INVESTOR',
-    enum: UserType,
+    enum: InvestorType,
   })
-  @IsEnum(UserType)
-  type: UserType;
+  @IsEnum(InvestorType)
+  type: InvestorType;
 
   @ApiProperty({
-    description: 'Password used to authenticate the user',
+    description: 'Password used to authenticate the investor',
     example: 'SecureP@ss123',
     required: false,
   })
@@ -44,7 +44,7 @@ export class CreateUserDto {
   password: string;
 
   @ApiProperty({
-    description: 'Full name of the user',
+    description: 'Full name of the investor',
     example: 'Jane Doe',
   })
   @IsString()
@@ -52,14 +52,14 @@ export class CreateUserDto {
   name: string;
 
   @ApiProperty({
-    description: 'Indicates if the user account is active',
+    description: 'Indicates if the investor account is active',
     example: true,
   })
   @IsBoolean()
   isActive: boolean;
 
   @ApiProperty({
-    description: 'Determines if the user has administrative privileges',
+    description: 'Determines if the investor has administrative privileges',
     example: false,
   })
   @IsBoolean()

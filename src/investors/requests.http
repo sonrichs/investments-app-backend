@@ -1,0 +1,42 @@
+@jwt_token = your_jwt_token_here
+@investor_id = your_investor_id_here
+
+### Create Investor
+POST http://localhost:3000/investors
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "email": "investor@example.com",
+  "password": "SecureP@ss123",
+  "name": "Sample Investor",
+  "nationalId": "123456789",
+  "type": "natural",
+  "isActive": true,
+  "isAdmin": false
+}
+
+### Update Investor
+PATCH http://localhost:3000/investors/{{investor_id}}
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "name": "Updated Investor"
+}
+
+### Get Investors
+GET http://localhost:3000/investors
+Authorization: Bearer {{jwt_token}}
+
+### Get Investors by email prefix
+GET http://localhost:3000/investors?emailPrefix=inv
+Authorization: Bearer {{jwt_token}}
+
+### Get Investor by ID
+GET http://localhost:3000/investors/{{investor_id}}
+Authorization: Bearer {{jwt_token}}
+
+### Delete Investor
+DELETE http://localhost:3000/investors/{{investor_id}}
+Authorization: Bearer {{jwt_token}}

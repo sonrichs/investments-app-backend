@@ -1,18 +1,18 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Exclude, Expose } from 'class-transformer';
-import { UserType } from '../user-type';
+import { InvestorType } from '../investor-type';
 
-export class UserDto {
+export class InvestorDto {
   @ApiProperty({
-    description: 'Unique identifier of the user',
-    example: 'usr_123',
+    description: 'Unique identifier of the investor',
+    example: 'inv_123',
   })
   @Expose()
   id: string;
 
   @ApiProperty({
-    description: 'Email used by the user',
-    example: 'user@example.com',
+    description: 'Email used by the investor',
+    example: 'investor@example.com',
   })
   @Expose()
   email: string;
@@ -25,12 +25,12 @@ export class UserDto {
   nationalId: string;
 
   @ApiProperty({
-    description: 'Type of user within the platform',
-    example: 'INVESTOR',
-    enum: UserType,
+    description: 'Type of investor within the platform',
+    example: 'NATURAL',
+    enum: InvestorType,
   })
   @Expose()
-  type: UserType;
+  type: InvestorType;
 
   @ApiProperty({
     description: 'Hashed password stored for authentication',
@@ -41,7 +41,7 @@ export class UserDto {
   password: string;
 
   @ApiProperty({
-    description: 'Full name displayed for the user',
+    description: 'Full name displayed for the investor',
     example: 'Jane Doe',
   })
   @Expose()
@@ -55,7 +55,7 @@ export class UserDto {
   isActive: boolean;
 
   @ApiProperty({
-    description: 'Shows if the user has administrator privileges',
+    description: 'Shows if the investor has administrator privileges',
     example: false,
   })
   @Expose()

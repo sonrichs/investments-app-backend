@@ -1,30 +1,27 @@
-import * as Joi from 'joi';
+import { z } from 'zod';
 
-interface Config {
-  PORT: number;
-  DB_TYPE: string;
-  DB_NAME: string;
-  CORS_ORIGIN: string;
-  DATABASE_HOST: string;
-  DATABASE_PORT: number;
-  DATABASE_USER: string;
-  DATABASE_PASS: string;
-  JWT_SECRET: string;
-  JWT_EXPIRATION: string;
-}
-
-export const validationSchema: Joi.ObjectSchema<Config> = Joi.object({
-  PORT: Joi.number().default(3000),
-  DB_TYPE: Joi.string()
-    .valid('sqlite', 'postgres')
-    .default('sqlite')
-    .required(),
-  DB_NAME: Joi.string().required(),
-  CORS_ORIGIN: Joi.string().required(),
-  DATABASE_HOST: Joi.string(),
-  DATABASE_PORT: Joi.number(),
-  DATABASE_USER: Joi.string(),
-  DATABASE_PASS: Joi.string(),
-  JWT_SECRET: Joi.string().required(),
-  JWT_EXPIRATION: Joi.string().default('1h'),
+export const validationSchema = z.object({
+  DB_TYPE: z.enum(['postgres']).default('postgres'),
+  DB_NAME: z.string(),
+  CORS_ORIGIN: z.string(),
+  DB_HOST: z.string(),
+  DB_PORT: z.coerce.number(),
+  DB_USERNAME: z.string(),
+  DB_PASSWORD: z.string(),
+  JWT_SECRET: z.string(),
+  JWT_EXPIRATION: z.string().default('1h'),
 });
+
+// Infer the type from the schema - no need for manual interface!
+export type Config = z.infer<typeof validationSchema>;
+
+// Custom validation function for NestJS ConfigModule
+export function validate(config: Record<string, unknown>) {
+  const result = validationSchema.safeParse(config);
+
+  if (!result.success) {
+    throw new Error(`Configuration validation error: ${result.error.message}`);
+  }
+
+  return result.data;
+}

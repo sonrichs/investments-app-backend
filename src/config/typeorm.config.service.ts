@@ -15,17 +15,17 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
     switch (process.env.NODE_ENV) {
       case 'development':
         return {
-          type: 'sqlite',
+          type: 'postgres',
+          url: `postgresql://${username}:${password}@${host}:5432/${database}?${databaseOptions}`,
           synchronize: true,
-          database: database,
           autoLoadEntities: true,
           migrationsRun: false,
         };
       case 'test':
         return {
-          type: 'sqlite',
+          type: 'postgres',
+          url: `postgresql://${username}:${password}@${host}/${database}?${databaseOptions}`,
           synchronize: true,
-          database: database,
           autoLoadEntities: true,
           migrationsRun: true,
         };

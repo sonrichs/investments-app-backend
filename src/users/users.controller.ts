@@ -18,8 +18,10 @@ import { Serialize } from '../interceptors/serialize.interceptor';
 import { UserDto } from './dto/user.dto';
 import { AuthGuard } from '../auth/auth.guard';
 import { CreateUserDto } from './dto/create-user.dto';
-import { ListUsersQueryDto } from './dto/list-users.query';
+import { ListUsersQueryDto } from './dto/list-users-query.dto';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
+@ApiBearerAuth()
 @Controller('users')
 @Serialize(UserDto)
 @UseGuards(AuthGuard)

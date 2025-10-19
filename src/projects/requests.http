@@ -1,12 +1,14 @@
 ### Create project
 POST http://localhost:3000/projects
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZjlkZjMzMi0wY2EzLTQxZjMtOWZlYy04Yjk1YzIzOTI2YWMiLCJ1c2VybmFtZSI6InNpZ25lZHVwdXNlckBleGFtcGxlLmNvbSIsImlhdCI6MTc1OTExMjcwNCwiZXhwIjoxNzU5MTE2MzA0fQ.8xhHe-ScY7RA04IWDExyeo1tydAxeCT8H19VtAfzEuM
 
 {
   "title": "Example project 2",
   "description": "Project description",
   "totalStocks": 300,
   "stockPrice": 2500,
+  "phase": 1,
   "currency": "CLP",
   "startDate": "2025-08-20",
   "endDate": "2025-09-19"

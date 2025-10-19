@@ -1,5 +1,6 @@
 import { Project } from '../../projects/entities/project.entity';
 import { User } from '../../users/entities/user.entity';
+import { Investor } from '../../investors/entities/investor.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
@@ -25,4 +26,10 @@ export class Investment {
 
   @ManyToOne(() => User, (user) => user.investments, { eager: true })
   user: User;
+
+  @ManyToOne(() => Investor, (investor) => investor.investments, {
+    eager: true,
+    nullable: true,
+  })
+  investor: Investor;
 }

@@ -16,7 +16,9 @@ import { UpdateProjectDto } from './dto/update-project.dto';
 import { Serialize } from '../interceptors/serialize.interceptor';
 import { ProjectDto } from './dto/project-dto';
 import { AuthGuard } from '../auth/auth.guard';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
+@ApiBearerAuth()
 @Controller('projects')
 @Serialize(ProjectDto)
 @UseGuards(AuthGuard)

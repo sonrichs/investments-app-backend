@@ -8,7 +8,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
 import { DataSource, FindManyOptions, ILike, Like, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ListUsersQueryDto } from './dto/list-users.query';
+import { ListUsersQueryDto } from './dto/list-users-query.dto';
 
 @Injectable()
 export class UsersService {

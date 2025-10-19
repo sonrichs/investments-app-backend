@@ -1,11 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { PartialType } from '@nestjs/mapped-types';
 import { IsBoolean, IsString, Length } from 'class-validator';
-import { CreateUserDto } from './create-user.dto';
+import { CreateInvestorDto } from './create-investor.dto';
 
-export class UpdateUserDto extends PartialType(CreateUserDto) {
+export class UpdateInvestorDto extends PartialType(CreateInvestorDto) {
   @ApiProperty({
-    description: 'Updated full name of the user',
+    description: 'Updated full name of the investor',
     example: 'Jane Doe',
     required: false,
   })
@@ -14,7 +14,7 @@ export class UpdateUserDto extends PartialType(CreateUserDto) {
   name: string;
 
   @ApiProperty({
-    description: 'Indicates if the user account remains active',
+    description: 'Indicates if the investor account remains active',
     example: true,
     required: false,
   })
@@ -22,7 +22,7 @@ export class UpdateUserDto extends PartialType(CreateUserDto) {
   isActive: boolean;
 
   @ApiProperty({
-    description: 'Indicates if the user retains administrative rights',
+    description: 'Indicates if the investor retains administrative rights',
     example: false,
     required: false,
   })
